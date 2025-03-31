@@ -1,1 +1,1 @@
-# Kohonel-SOM-
+# KOHONEN-SOM
