@@ -9,15 +9,19 @@ namespace Kohonen
         public int a;
         public List<double> w = new List<double>();
 		public List<Neurona> neuronasEntrada = new List<Neurona>();
+		public List<Neurona> neuronasSalida = new List<Neurona>();
 
 		public Neurona(string nombre)
 		{
 			this.nombre = nombre;
 		}
 
-		public void agregarNeurona(Neurona neurona)
+		public void agregarNeurona(Neurona neurona, string tipo)
 		{
-			neuronasEntrada.Add(neurona);
+			if(tipo == "Entrada")
+				neuronasEntrada.Add(neurona);
+			else
+				neuronasSalida.Add(neurona);
 		}
 	}
 }

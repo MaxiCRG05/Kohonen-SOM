@@ -12,7 +12,7 @@ namespace Kohonen
 		public int numNeuronasEntrada, numNeuronas;
 
 		Random rand = new Random();
-		
+
 		public enum TipoCapa
 		{
 			Entrada,
@@ -44,14 +44,16 @@ namespace Kohonen
 
 		public void iniciarPesosEntrada()
 		{
-			for (int i = 0; i < neuronas.Count; i++)
+			for(int i = 0; i < neuronas.Count; i++)
+				for(int j = 0; j < neuronas[i].neuronasSalida.Count; j++)
 					neuronas[i].w.Add(rand.NextDouble());
 		}
 
 		public void iniciarPesosSalida()
 		{
-			for(int i = 0; i < neuronas[0].neuronasEntrada.Count; i++)
-				neuronas[i].w.Add(rand.NextDouble());
+			for (int i = 0; i < neuronas.Count; i++)
+				for (int j = 0; j < numNeuronasEntrada; j++)
+					neuronas[i].w.Add(rand.NextDouble());
 		}
 	}
 }

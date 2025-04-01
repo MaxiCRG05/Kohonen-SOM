@@ -15,18 +15,26 @@ namespace Kohonen
 				else if (i == n.Count - 1)
 					capas.Add(new Capa(n[i], n[0], Capa.TipoCapa.Salida));
 
-			conectarEntradas();
+			for(int c = 0; c < capas.Count; c++)
+				conectarNeuronas(c, capas[c].tipo);
 
 			for (int i = 0; i < capas.Count; i++)
 				capas[i].iniciarPesos();
 		}
 
-		public void conectarEntradas()
+		public void conectarNeuronas(int c, Capa.TipoCapa tipo)
 		{
-			for(int i = 0; i < capas[0].neuronas.Count; i++)
+			if(tipo == Capa.TipoCapa.Entrada)
 			{
-				for(int j = 0; j < capas[1].neuronas.Count; j++)
-					capas[1].neuronas[j].agregarNeurona(capas[0].neuronas[i]);
+				for(int i = 0; i < capas[c].neuronas.Count; i++)
+					for(int j = 0; j < capas[c + 1].neuronas.Count; j++)
+						capas[c].neuronas[i].agregarNeurona(capas[c + 1].neuronas[j], "Salida");
+			}
+			else
+			{
+				for (int i = 0; i < capas[c].neuronas.Count; i++)
+					for (int j = 0; j < capas[c - 1].neuronas.Count; j++)
+						capas[c].neuronas[i].agregarNeurona(capas[c - 1].neuronas[j], "Entrada");
 			}
 		}
 	}
