@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Perceptron_Multicapa_Colores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -15,10 +16,9 @@ namespace SOM_Kohonen
         [STAThread]
         static void Main()
         {
-			List<int> n = new List<int> { 5, 5 };
 			DateTime inicio = DateTime.Now;
 
-			Kohonen red_neuronal = new Kohonen(n);
+			Kohonen red_neuronal = new Kohonen(VariablesGlobales.n);
 
 			DateTime fin = DateTime.Now;
 			var tiempoDeEjecucion = fin - inicio;

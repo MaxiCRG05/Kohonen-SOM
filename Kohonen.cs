@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SOM_Kohonen
 {
@@ -20,18 +21,38 @@ namespace SOM_Kohonen
 
 			for (int i = 0; i < capas.Count; i++)
 				capas[i].iniciarPesos();
-					}
-
-		public void propagar()
-		{
-			for (int i = 0; i < capas.Count; i++)
-				for (int j = 0; j < capas[i].neuronas.Count; j++)
-					capas[i].neuronas[j].a = 0;
 		}
 
-		public void entrenar()
+		public void calcularDistancias()
 		{
+			for(int i = 0; i < capas[1].neuronas.Count; i++)
+			{
+				double distancia = 0;
+				for(int w = 0; w < capas[1].neuronas[i].w.Count; w++)
+				{
+					double diferencia = capas[0].neuronas[w].a - capas[1].neuronas[i].w[w];
+					distancia += diferencia * diferencia;
+				}
+				distancia = Math.Sqrt(distancia);
+				capas[1].neuronas[i].distancia = distancia;
+			}
+		}
 
+		public Neurona encontrarGanadora()
+		{
+			Neurona ganadora = capas[1].neuronas[0];
+			double menorDistancia = ganadora.distancia;
+
+			for (int i = 1; i < capas[1].neuronas.Count; i++)
+			{
+				if (capas[1].neuronas[i].distancia < menorDistancia)
+				{
+					menorDistancia = capas[1].neuronas[i].distancia;
+					ganadora = capas[1].neuronas[i];
+				}
+			}
+
+			return ganadora;
 		}
 
 		public void conectarNeuronas(int c, Capa.TipoCapa tipo)

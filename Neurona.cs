@@ -7,6 +7,7 @@ namespace SOM_Kohonen
     {
 		public string nombre;
 		public double a;
+		public double distancia;
         public List<double> w = new List<double>();
 		public List<Neurona> neuronasEntrada = new List<Neurona>();
 		public List<Neurona> neuronasCompeticion = new List<Neurona>();
