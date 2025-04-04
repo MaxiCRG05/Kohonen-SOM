@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada a un ensamblado.
-[assembly: AssemblyTitle("Kohonen")]
+// asociada con un ensamblado.
+[assembly: AssemblyTitle("SOM_Kohonen")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Kohonen")]
+[assembly: AssemblyProduct("SOM_Kohonen")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("117b843e-3d40-42d5-8e42-fdf9743b64d3")]
+[assembly: Guid("07a122e4-de56-4fca-8a5f-3fd6b368a97c")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

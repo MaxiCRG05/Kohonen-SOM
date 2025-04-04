@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kohonen
+namespace SOM_Kohonen
 {
     class Capa
 	{
@@ -16,7 +16,7 @@ namespace Kohonen
 		public enum TipoCapa
 		{
 			Entrada,
-			Salida
+			Competicion
 		}
 
 		public Capa(int numNeuronas, int numNeuronasEntrada, TipoCapa tipo)
@@ -39,17 +39,17 @@ namespace Kohonen
 			if (tipo == TipoCapa.Entrada)
 				iniciarPesosEntrada();
 			else
-				iniciarPesosSalida();
+				iniciarPesosCompeticion();
 		}
 
 		public void iniciarPesosEntrada()
 		{
 			for(int i = 0; i < neuronas.Count; i++)
-				for(int j = 0; j < neuronas[i].neuronasSalida.Count; j++)
+				for(int j = 0; j < neuronas[i].neuronasCompeticion.Count; j++)
 					neuronas[i].w.Add(rand.NextDouble());
 		}
 
-		public void iniciarPesosSalida()
+		public void iniciarPesosCompeticion()
 		{
 			for (int i = 0; i < neuronas.Count; i++)
 				for (int j = 0; j < numNeuronasEntrada; j++)

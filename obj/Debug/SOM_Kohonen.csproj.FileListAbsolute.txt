@@ -1,0 +1,10 @@
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\bin\Debug\SOM_Kohonen.exe.config
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\bin\Debug\SOM_Kohonen.exe
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\bin\Debug\SOM_Kohonen.pdb
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.csproj.AssemblyReference.cache
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.Form1.resources
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.Properties.Resources.resources
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.csproj.GenerateResource.cache
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.csproj.CoreCompileInputs.cache
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.exe
+C:\Users\Equipo 15\source\repos\SOM_Kohonen\obj\Debug\SOM_Kohonen.pdb
