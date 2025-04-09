@@ -6,23 +6,24 @@ namespace SOM_Kohonen
     class Neurona
     {
 		public string nombre;
-		public double a;
-		public double distancia;
+		public double a, umbral, delta;
         public List<double> w = new List<double>();
-		public List<Neurona> neuronasEntrada = new List<Neurona>();
-		public List<Neurona> neuronasCompeticion = new List<Neurona>();
+		public List<Neurona> neuronasF1 = new List<Neurona>();
+		public List<Neurona> neuronasF2 = new List<Neurona>();
+		readonly Random rand = new Random();
 
 		public Neurona(string nombre)
 		{
 			this.nombre = nombre;
+			umbral = rand.NextDouble();
 		}
 
-		public void agregarNeurona(Neurona neurona, string tipo)
+		public void agregar_Neurona(Neurona neurona, string tipo)
 		{
-			if(tipo == "Entrada")
-				neuronasEntrada.Add(neurona);
+			if(tipo == "F1")
+				neuronasF1.Add(neurona);
 			else
-				neuronasCompeticion.Add(neurona);
+				neuronasF2.Add(neurona);
 		}
 	}
 }

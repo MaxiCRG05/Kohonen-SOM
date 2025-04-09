@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|c:\\users\\equipo 15\\source\\repos\\som_kohonen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|c:\\users\\equipo 15\\source\\repos\\som_kohonen\\kohonen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:kohonen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|c:\\users\\equipo 15\\source\\repos\\som_kohonen\\variablesglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\variablesglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:variablesglobales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\neurona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:neurona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|c:\\users\\equipo 15\\source\\repos\\som_kohonen\\archivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:archivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\capa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:capa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\kohonen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:kohonen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\neurona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|solutionrelative:neurona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{07A122E4-DE56-4FCA-8A5F-3FD6B368A97C}|SOM_Kohonen.csproj|C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Archivos.cs",
+              "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Archivos.cs",
+              "RelativeDocumentMoniker": "Archivos.cs",
+              "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Archivos.cs",
+              "RelativeToolTip": "Archivos.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAYwG4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T01:18:20.111Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,66 +65,66 @@
               "RelativeDocumentMoniker": "VariablesGlobales.cs",
               "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\VariablesGlobales.cs",
               "RelativeToolTip": "VariablesGlobales.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAUwCQAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwFEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T01:38:38.394Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Kohonen.cs",
               "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Kohonen.cs",
               "RelativeDocumentMoniker": "Kohonen.cs",
               "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Kohonen.cs",
               "RelativeToolTip": "Kohonen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAkwH0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T00:49:59.013Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Capa.cs",
               "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Capa.cs",
               "RelativeDocumentMoniker": "Capa.cs",
               "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Capa.cs",
               "RelativeToolTip": "Capa.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T00:50:17.15Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Neurona.cs",
               "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Neurona.cs",
               "RelativeDocumentMoniker": "Neurona.cs",
               "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Neurona.cs",
               "RelativeToolTip": "Neurona.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T00:50:10.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAApwBQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBsAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T00:54:22.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Equipo 15\\source\\repos\\SOM_Kohonen\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

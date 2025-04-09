@@ -18,10 +18,18 @@ namespace SOM_Kohonen
         {
 			DateTime inicio = DateTime.Now;
 
-			Kohonen red_neuronal = new Kohonen(VariablesGlobales.n);
+            List<int> n = new List<int>
+			{
+				
+			};
+
+			Kohonen red_neuronal = new Kohonen(n);
+
+            red_neuronal.propagar(VariablesGlobales.PatronesRGB);
 
 			DateTime fin = DateTime.Now;
-			var tiempoDeEjecucion = fin - inicio;
+			
+            var tiempoDeEjecucion = fin - inicio;
 
 			Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
