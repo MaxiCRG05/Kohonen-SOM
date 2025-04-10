@@ -106,24 +106,6 @@ namespace Perceptron_Multicapa_Colores
 			}
 		}
 
-		public string LeerLinea(string nombreArchivo)
-		{
-			string linea = "";
-			try
-			{
-				sr = new StreamReader(ruta + nombreArchivo);
-				linea = sr.ReadLine();
-				
-				sr.Close();
-			}
-			catch(Exception e)
-			{
-				MessageBox.Show($"No se ha podido leer el archivo debido a un error.\nError:\n{e.Message}", caption: $"Archivo: {nombreArchivo}");
-				Console.WriteLine($"Excepcion: {e.Message}");
-			}
-			return linea;
-		}
-
 		/// <summary>
 		/// Método para leer una linea de un archivo.
 		/// </summary>

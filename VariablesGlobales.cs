@@ -23,23 +23,23 @@ namespace Perceptron_Multicapa_Colores
 		/// Datos: Nombre del archivo en el que se almacenarán los datos.
 		/// </summary>
 		public static readonly string Escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-			Carpeta = @"\Archivos\SOM",
+			Carpeta = @"\Archivos\SOM\",
 			Ruta = Path.Combine(Escritorio + Carpeta),
 			FormatoArchivos = ".txt",
 			Configuracion = "configuracion" + FormatoArchivos;
 
-		public static double TasaAprendizaje = 0;
+		public static double TasaAprendizaje, Factor;
 
 		private Archivos  Datos = new Archivos(Ruta);
 
-		public static List<double> n = new List<double>();
+		public List<int> n = new List<int>();
 
 		/// <summary>
 		/// Epocas: Iteraciones que se harán para el aprendizaje.
 		/// Min: Valor mínimo dentro del contexto de los datos.
 		/// Max: Valor máximo dentro del contexto de los datos.
 		/// </summary>
-		public static int Epocas = 100000, Min = 0, Max = 255, NumPatrones;
+		public static int Epocas, NumPatrones, Min, Max;
 
 		/// <summary>
 		/// Arreglo bidimensional el cual obtendrá los datos de entrada
@@ -51,12 +51,18 @@ namespace Perceptron_Multicapa_Colores
 		/// </summary>
 		public VariablesGlobales()
 		{
+			cargarDatos();
+
 			try
 			{
 				if (!Directory.Exists(Ruta))
 				{
 					MessageBox.Show("Se ha creado el directorio.", "Archivos");
 					Directory.CreateDirectory(Ruta);
+				}
+				else
+				{
+					Console.WriteLine("Ya existe el directorio.");
 				}
 			}
 			catch (Exception e)
@@ -69,25 +75,26 @@ namespace Perceptron_Multicapa_Colores
 		{
 			Datos.BuscarArchivo(Configuracion);
 
-			n.Add(int.Parse(Datos.LeerLinea(Configuracion)));
-			n.Add(int.Parse(Datos.LeerLinea(Configuracion)));
-			TasaAprendizaje = double.Parse(Datos.LeerLinea(Configuracion));
-			NumPatrones = int.Parse(Datos.LeerLinea(Configuracion));
+			List<string> lineas = Datos.LeerArchivo(Configuracion);
 
-			for (int i = 0; i < NumPatrones; i++)
+			for (int i = 0; i < lineas.Count; i++)
 			{
-				string linea = Datos.LeerLinea(Configuracion);
-				string[] valores = linea.Split(new[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
-				
-				if (valores.Length == 3)
-				{
-					double[] rgb = new double[3] {
-					double.Parse(valores[0]),
-					double.Parse(valores[1]),
-					double.Parse(valores[2])
-				};
-					PatronesRGB.Add(rgb);
-				}
+				if (i < 3)
+					n.Add(Convert.ToInt32(lineas[i]));
+				else if (i == 3)
+					TasaAprendizaje = Convert.ToDouble(lineas[i]);
+				else if (i == 4)
+					NumPatrones = Convert.ToInt32(lineas[i]);
+				else if (i == 5)
+					Epocas = Convert.ToInt32(lineas[i]);
+				else if (i == 6)
+					Min = Convert.ToInt32(lineas[i]);
+				else if (i == 7)
+					Max = Convert.ToInt32(lineas[i]);
+				else if (i == 8)
+					Factor = Convert.ToDouble(lineas[i]);
+				else
+					PatronesRGB.Add(lineas[i].Split('\t').Select(x => Convert.ToDouble(x)).ToArray());
 			}
 		}
 	}

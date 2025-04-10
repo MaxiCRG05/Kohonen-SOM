@@ -6,11 +6,9 @@ namespace SOM_Kohonen
     class Capa
 	{
 		public TipoCapa tipo;
-
 		public List<Neurona> neuronas = new List<Neurona>();
-
 		public int numneuronasF1, numNeuronas;
-
+		public int alto, ancho;
 		Random rand = new Random();
 
 		public enum TipoCapa
@@ -19,37 +17,56 @@ namespace SOM_Kohonen
 			F2
 		}
 
-		public Capa(int numNeuronas, int numneuronasF1, TipoCapa tipo)
+		public Capa(int ancho, int alto, int numneuronasF1, TipoCapa tipo)
 		{
 			this.tipo = tipo;
-			this.numNeuronas = numNeuronas;
+			this.ancho = ancho;
+			this.alto = alto;
+			this.numNeuronas = (alto != 0) ? ancho * alto : ancho;
 			this.numneuronasF1 = numneuronasF1;
 
-			crear_Neuronas();
+			crearNeuronas();
 		}
 
-		public void crear_Neuronas()
-		{
-			for (int i = 0; i < numNeuronas; i++)
-				neuronas.Add(new Neurona($"Neurona_{tipo}_{i + 1}"));
-		}
-
-		public void iniciar_Pesos()
+		public void crearNeuronas()
 		{
 			if (tipo == TipoCapa.F1)
-				iniciar_Pesos_F1();
+			{
+				for(int i = 0; i < numNeuronas; i++)
+					neuronas.Add(new Neurona($"Neurona_{tipo}_{i}", i + 1, 0, 0));
+			}
 			else
-				iniciar_Pesos_F2();
+			{
+				for (int y = 0; y < alto; y++)
+					for (int x = 0; x < ancho; x++)
+						neuronas.Add(new Neurona($"Neurona_{tipo}_{x}_{y}", (y * ancho) + x + 1, x, y));
+			}
 		}
 
-		public void iniciar_Pesos_F1()
+		public Neurona ObtenerNeurona(int x, int y)
+		{
+			if (x < 0 || x >= ancho || y < 0 || y >= alto)
+				return null;
+
+			return neuronas[y * ancho + x];
+		}
+
+		public void iniciarPesos()
+		{
+			if (tipo == TipoCapa.F1)
+				iniciarPesosF1();
+			else
+				iniciarPesosF2();
+		}
+
+		public void iniciarPesosF1()
 		{
 			for(int i = 0; i < neuronas.Count; i++)
 				for(int j = 0; j < neuronas[i].neuronasF2.Count; j++)
 					neuronas[i].w.Add(rand.NextDouble());
 		}
 
-		public void iniciar_Pesos_F2()
+		public void iniciarPesosF2()
 		{
 			for (int i = 0; i < neuronas.Count; i++)
 				for (int j = 0; j < numneuronasF1; j++)

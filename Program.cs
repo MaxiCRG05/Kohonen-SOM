@@ -8,34 +8,17 @@ using System.Windows.Forms;
 
 namespace SOM_Kohonen
 {
-    static class Program
+    public class Program
     {
         /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
-        [STAThread]
-        static void Main()
+		/// Punto de entrada principal para la aplicación.
+		/// </summary>
+		[STAThread]
+        public static void Main()
         {
-			DateTime inicio = DateTime.Now;
-
-            List<int> n = new List<int>
-			{
-				
-			};
-
-			Kohonen red_neuronal = new Kohonen(n);
-
-            red_neuronal.propagar(VariablesGlobales.PatronesRGB);
-
-			DateTime fin = DateTime.Now;
-			
-            var tiempoDeEjecucion = fin - inicio;
-
 			Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-			Console.WriteLine("Tiempo de ejecución: " + tiempoDeEjecucion.TotalSeconds + " segundos.");
 		}
 	}
 }
