@@ -47,12 +47,6 @@ namespace Perceptron_Multicapa_Colores
 		{
 			if (File.Exists(ruta + nombreArchivo))
 			{
-				DialogResult dialogResult = MessageBox.Show($"El archivo {nombreArchivo} si se encuentra. ¿Deseas limpiarlo?", caption: $"Archivo {nombreArchivo}", buttons: MessageBoxButtons.YesNo);
-
-				if (dialogResult == DialogResult.Yes)
-				{
-					CrearArchivo(nombreArchivo);
-				}
 				return true;
 			}
 			else

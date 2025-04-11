@@ -22,9 +22,7 @@ namespace Perceptron_Multicapa_Colores
 		/// Configuracion: Nombre del archivo para guardar la configuración.
 		/// Datos: Nombre del archivo en el que se almacenarán los datos.
 		/// </summary>
-		public static readonly string Escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-			Carpeta = @"\Archivos\SOM\",
-			Ruta = Path.Combine(Escritorio + Carpeta),
+		public static readonly string Ruta = @"Resources\",
 			FormatoArchivos = ".txt",
 			Configuracion = "configuracion" + FormatoArchivos;
 
@@ -73,28 +71,33 @@ namespace Perceptron_Multicapa_Colores
 
 		public void cargarDatos()
 		{
-			Datos.BuscarArchivo(Configuracion);
-
-			List<string> lineas = Datos.LeerArchivo(Configuracion);
-
-			for (int i = 0; i < lineas.Count; i++)
+			if (Datos.BuscarArchivo(Configuracion))
 			{
-				if (i < 3)
-					n.Add(Convert.ToInt32(lineas[i]));
-				else if (i == 3)
-					TasaAprendizaje = Convert.ToDouble(lineas[i]);
-				else if (i == 4)
-					NumPatrones = Convert.ToInt32(lineas[i]);
-				else if (i == 5)
-					Epocas = Convert.ToInt32(lineas[i]);
-				else if (i == 6)
-					Min = Convert.ToInt32(lineas[i]);
-				else if (i == 7)
-					Max = Convert.ToInt32(lineas[i]);
-				else if (i == 8)
-					Factor = Convert.ToDouble(lineas[i]);
-				else
-					PatronesRGB.Add(lineas[i].Split('\t').Select(x => Convert.ToDouble(x)).ToArray());
+				List<string> lineas = Datos.LeerArchivo(Configuracion);
+
+				for (int i = 0; i < lineas.Count; i++)
+				{
+					if (i < 3)
+						n.Add(Convert.ToInt32(lineas[i]));
+					else if (i == 3)
+						TasaAprendizaje = Convert.ToDouble(lineas[i]);
+					else if (i == 4)
+						NumPatrones = Convert.ToInt32(lineas[i]);
+					else if (i == 5)
+						Epocas = Convert.ToInt32(lineas[i]);
+					else if (i == 6)
+						Min = Convert.ToInt32(lineas[i]);
+					else if (i == 7)
+						Max = Convert.ToInt32(lineas[i]);
+					else if (i == 8)
+						Factor = Convert.ToDouble(lineas[i]);
+					else
+						PatronesRGB.Add(lineas[i].Split('\t').Select(x => Convert.ToDouble(x)).ToArray());
+				}
+			}
+			else
+			{
+
 			}
 		}
 	}

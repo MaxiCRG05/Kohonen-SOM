@@ -23,7 +23,7 @@ namespace SOM_Kohonen
 			InitializeComponent();
 
 			DateTime inicio = DateTime.Now;
-			red_neuronal.propagar(VariablesGlobales.PatronesRGB);
+			red_neuronal.entrenar(VariablesGlobales.PatronesRGB);
 			DateTime fin = DateTime.Now;
 
 			lblInfo.Text = $"Inicializado en {(fin - inicio).TotalSeconds:F2} segundos";
