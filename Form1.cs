@@ -22,11 +22,7 @@ namespace SOM_Kohonen
 		{
 			InitializeComponent();
 
-			DateTime inicio = DateTime.Now;
-			red_neuronal.entrenar(VariablesGlobales.PatronesRGB);
-			DateTime fin = DateTime.Now;
-
-			lblInfo.Text = $"Inicializado en {(fin - inicio).TotalSeconds:F2} segundos";
+			VisualizarUMatrix();
 			ActualizarVisualizacion();
 		}
 
@@ -34,34 +30,77 @@ namespace SOM_Kohonen
 		{
 			if (red_neuronal.capas[1].alto == 0) return;
 
-			int ancho = mapaNeuronas.Width;
-			int alto = mapaNeuronas.Height;
-			Bitmap bitmap = new Bitmap(ancho, alto);
+			chSOM.Series.Clear();
+			chSOM.ChartAreas.Clear();
 
-			int neuronasX = red_neuronal.capas[1].ancho;
-			int neuronasY = red_neuronal.capas[1].alto;
+			ChartArea chartArea = new ChartArea();
+			chartArea.AxisX.Minimum = 0;
+			chartArea.AxisX.Maximum = red_neuronal.capas[1].ancho;
+			chartArea.AxisY.Minimum = 0;
+			chartArea.AxisY.Maximum = red_neuronal.capas[1].alto;
+			chartArea.AxisX.Interval = 1;
+			chartArea.AxisY.Interval = 1;
+			chSOM.ChartAreas.Add(chartArea);
 
-			int celdaAncho = ancho / neuronasX;
-			int celdaAlto = alto / neuronasY;
+			Series neuronSeries = new Series("Neuronas");
+			neuronSeries.ChartType = SeriesChartType.Point;
+			neuronSeries.MarkerSize = 15;
+			neuronSeries.MarkerStyle = MarkerStyle.Circle;
+			neuronSeries.Color = Color.Black;
 
-			for (int y = 0; y < neuronasY; y++)
+			for (int y = 0; y < red_neuronal.capas[1].alto; y++)
 			{
-				for (int x = 0; x < neuronasX; x++)
+				for (int x = 0; x < red_neuronal.capas[1].ancho; x++)
 				{
-					for (int i = 0; i < celdaAncho; i++)
-					{
-						for (int j = 0; j < celdaAlto; j++)
-						{
-							int px = x * celdaAncho + i;
-							int py = y * celdaAlto + j;
-							if (px < ancho && py < alto)
-								bitmap.SetPixel(px, py, color);
-						}
-					}
+					var neurona = red_neuronal.capas[1].neuronas[x];
+					Color neuronColor = Color.FromArgb(
+						(int)(neurona.w[0] / 255),
+						(int)(neurona.w[1] / 255),
+						(int)(neurona.w[2] / 255));
+
+					DataPoint point = new DataPoint(x, y);
+					point.Color = neuronColor;
+					point.Label = $"{x},{y}";
+					neuronSeries.Points.Add(point);
 				}
 			}
 
-			mapaNeuronas.Image = bitmap;
+			chSOM.Series.Add(neuronSeries);
+		}
+
+		public void VisualizarUMatrix()
+		{
+			chartPesos.Series.Clear();
+			chartPesos.ChartAreas.Clear();
+			ChartArea area = new ChartArea("UMatrix");
+			chartPesos.ChartAreas.Add(area);
+
+			Series series = new Series("Distancias")
+			{
+				ChartType = SeriesChartType.Point,
+				MarkerSize = 15
+			};
+
+			for (int y = 0; y < red_neuronal.capas[1].alto; y++)
+			{
+				for (int x = 0; x < red_neuronal.capas[1].ancho; x++)
+				{
+					double distancia = red_neuronal.CalcularDistanciaPromedio(x, y);
+
+					DataPoint point = new DataPoint(x, y);
+					point.Color = GetColorForDistance(distancia);
+					point.Label = $"{distancia:F2}";
+					series.Points.Add(point);
+				}
+			}
+
+			chartPesos.Series.Add(series);
+		}
+
+		private Color GetColorForDistance(double distancia)
+		{
+			int valor = (int)(Math.Min(distancia * 255, 255));
+			return Color.FromArgb(valor, valor, valor);
 		}
 
 		private void ProbarColor()
@@ -82,34 +121,30 @@ namespace SOM_Kohonen
 				lblInfo.Text = info;
 
 				ActualizarVisualizacion();
+				VisualizarUMatrix();
 				ResaltarNeuronaGanadora();
 			}
 		}
 
 		private void ResaltarNeuronaGanadora()
 		{
-			if (mapaNeuronas.Image == null || red_neuronal.neuronaGanadora == null) return;
+			if (red_neuronal.neuronaGanadora == null) return;
 
-			Bitmap bitmap = (Bitmap)mapaNeuronas.Image;
-			int neuronasX = red_neuronal.capas[1].ancho;
-			int neuronasY = red_neuronal.capas[1].alto;
-			int celdaAncho = bitmap.Width / neuronasX;
-			int celdaAlto = bitmap.Height / neuronasY;
+			Series winnerSeries = new Series("Ganadora");
+			winnerSeries.ChartType = SeriesChartType.Point;
+			winnerSeries.MarkerSize = 20;
+			winnerSeries.MarkerStyle = MarkerStyle.Circle;
+			winnerSeries.MarkerBorderColor = Color.Black;
+			winnerSeries.MarkerBorderWidth = 3;
+			winnerSeries.Color = Color.Transparent; 
 
-			int x = red_neuronal.neuronaGanadora.X;
-			int y = red_neuronal.neuronaGanadora.Y;
+			DataPoint winnerPoint = new DataPoint(
+				red_neuronal.neuronaGanadora.X,
+				red_neuronal.neuronaGanadora.Y);
+			winnerPoint.Label = $"GANADORA";
+			winnerSeries.Points.Add(winnerPoint);
 
-			using (Graphics g = Graphics.FromImage(bitmap))
-			{
-				Pen pen = new Pen(Color.Black, 3);
-				g.DrawRectangle(pen,
-					x * celdaAncho,
-					y * celdaAlto,
-					celdaAncho,
-					celdaAlto);
-			}
-
-			mapaNeuronas.Invalidate();
+			chSOM.Series.Add(winnerSeries);
 		}
 
 		private void btnProbar_MouseClick(object sender, MouseEventArgs e)
@@ -144,6 +179,16 @@ namespace SOM_Kohonen
 			   new double[] { color.R, color.G, color.B }
 			};
 			ProbarColor();
+		}
+
+		private void btnTrain_MouseClick(object sender, MouseEventArgs e)
+		{
+			DateTime inicio = DateTime.Now;
+			red_neuronal.entrenar(VariablesGlobales.PatronesRGB);
+			DateTime fin = DateTime.Now;
+			Console.WriteLine($"Entrenamiento completado en {(fin - inicio).TotalSeconds:F2} segundos");
+			ActualizarVisualizacion();
+			VisualizarUMatrix();
 		}
 	}
 }

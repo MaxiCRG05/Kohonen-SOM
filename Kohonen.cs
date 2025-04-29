@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SOM_Kohonen
@@ -175,20 +176,41 @@ namespace SOM_Kohonen
 			}
 		}
 
-		public void VisualizarMapa()
+		public double CalcularDistanciaPromedio(int x, int y)
 		{
-			if (capas[1].alto == 0) return;
+			if (capas.Count < 2 || capas[1].alto == 0 || capas[1].ancho == 0)
+				return 0;
 
-			Console.WriteLine("Mapa Auto-Organizado:");
-			for (int y = 0; y < capas[1].alto; y++)
+			int index = y * capas[1].ancho + x;
+			if (index < 0 || index >= capas[1].neuronas.Count)
+				return 0;
+
+			Neurona neuronaActual = capas[1].neuronas[index];
+			double sumaDistancias = 0;
+			int vecinosValidos = 0;
+
+			int radioVecindad = 1;
+
+			for (int ny = Math.Max(0, y - radioVecindad); ny <= Math.Min(capas[1].alto - 1, y + radioVecindad); ny++)
 			{
-				for (int x = 0; x < capas[1].ancho; x++)
+				for (int nx = Math.Max(0, x - radioVecindad); nx <= Math.Min(capas[1].ancho - 1, x + radioVecindad); nx++)
 				{
-					var neurona = capas[1].ObtenerNeurona(x, y);
-					Console.Write($"[{neurona.w[0].ToString("e3"):F2},\t{neurona.w[1].ToString("e2"):F2},\t{neurona.w[2].ToString("e2"):F2}]\t");
+					if (nx == x && ny == y) continue;
+
+					int vecinoIndex = ny * capas[1].ancho + nx;
+					Neurona vecino = capas[1].neuronas[vecinoIndex];
+
+					double distancia = 0;
+					int dim = Math.Min(neuronaActual.w.Count, vecino.w.Count);
+					for (int i = 0; i < dim; i++)
+						distancia += Math.Pow(neuronaActual.w[i] - vecino.w[i], 2);
+
+					sumaDistancias += Math.Sqrt(distancia);
+					vecinosValidos++;
 				}
-				Console.WriteLine();
 			}
+
+			return vecinosValidos > 0 ? sumaDistancias / vecinosValidos : 0;
 		}
 
 		private double CalcularInfluenciaVecindario(double distancia, double radio)
@@ -196,7 +218,7 @@ namespace SOM_Kohonen
 			return distancia <= radio ? Math.Exp(-(distancia * distancia) / (2 * radio * radio)) : 0;
 		}
 
-		private double calcularDistancia2D(Neurona a, Neurona b)
+		public double calcularDistancia2D(Neurona a, Neurona b)
 		{
 			int dx = a.X - b.X;
 			int dy = a.Y - b.Y;
@@ -286,6 +308,7 @@ namespace SOM_Kohonen
 
 				epocasAlcanzadas++;
 			}
+			MessageBox.Show("Se ha entrenado.", "SOM");
 		}
 	}
 }
